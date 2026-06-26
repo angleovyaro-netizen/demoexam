@@ -1,454 +1,506 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Демоэкзамен - Шпаргалка Модуль 1</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .search-box {
-            padding: 20px;
-            background: #f8f9fa;
-            border-bottom: 2px solid #e9ecef;
-        }
-        
-        .search-box input {
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        
-        .search-box input:focus {
-            border-color: #667eea;
-        }
-        
-        .tabs {
-            display: flex;
-            flex-wrap: wrap;
-            background: #f8f9fa;
-            border-bottom: 2px solid #e9ecef;
-        }
-        
-        .tab {
-            padding: 15px 25px;
-            cursor: pointer;
-            background: #e9ecef;
-            border: none;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border-right: 1px solid #dee2e6;
-        }
-        
-        .tab:hover {
-            background: #dee2e6;
-        }
-        
-        .tab.active {
-            background: #667eea;
-            color: white;
-        }
-        
-        .content {
-            padding: 30px;
-            display: none;
-        }
-        
-        .content.active {
-            display: block;
-        }
-        
-        .section {
-            margin-bottom: 30px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .section-title {
-            font-size: 1.5em;
-            color: #333;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #667eea;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-        
-        .subsection {
-            margin: 15px 0;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            border-left: 3px solid #28a745;
-        }
-        
-        .subsection h3 {
-            color: #28a745;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-        
-        .code-block {
-            background: #2d2d2d;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-            position: relative;
-            overflow-x: auto;
-        }
-        
-        .code-block pre {
-            margin: 0;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.6;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        
-        .copy-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .copy-btn:hover {
-            background: #5568d3;
-            transform: scale(1.05);
-        }
-        
-        .copy-btn.copied {
-            background: #28a745;
-        }
-        
-        .screenshot-note {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-        
-        .screenshot-note strong {
-            color: #856404;
-        }
-        
-        .table-container {
-            overflow-x: auto;
-            margin: 15px 0;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-        }
-        
-        th, td {
-            border: 1px solid #dee2e6;
-            padding: 10px;
-            text-align: left;
-        }
-        
-        th {
-            background: #667eea;
-            color: white;
-            font-weight: 600;
-        }
-        
-        tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-        
-        .highlight {
-            background: yellow;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .tab {
-                padding: 10px 15px;
-                font-size: 14px;
-            }
-            
-            .content {
-                padding: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Демоэкзамен - Шпаргалка</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+.container { max-width: 1400px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }
+.header h1 { font-size: 2.2em; margin-bottom: 10px; }
+.search-box { padding: 20px; background: #f8f9fa; border-bottom: 2px solid #e9ecef; }
+.search-box input { width: 100%; padding: 15px; font-size: 16px; border: 2px solid #dee2e6; border-radius: 8px; outline: none; }
+.tabs { display: flex; flex-wrap: wrap; background: #f8f9fa; border-bottom: 2px solid #e9ecef; }
+.tab { padding: 15px 20px; cursor: pointer; background: #e9ecef; border: none; font-size: 15px; font-weight: 600; transition: all 0.3s; border-right: 1px solid #dee2e6; }
+.tab:hover { background: #dee2e6; }
+.tab.active { background: #667eea; color: white; }
+.content { padding: 30px; display: none; }
+.content.active { display: block; }
+.section { margin-bottom: 30px; }
+.section-title { font-size: 1.4em; color: white; background: #667eea; padding: 12px 15px; border-radius: 5px; margin-bottom: 20px; }
+.subsection { margin: 15px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #28a745; }
+.subsection h3 { color: #28a745; margin-bottom: 10px; font-size: 1.2em; }
+.code-block { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 8px; margin: 10px 0; position: relative; overflow-x: auto; }
+.code-block pre { margin: 0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
+.copy-btn { position: absolute; top: 10px; right: 10px; background: #667eea; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 600; z-index: 10; }
+.copy-btn:hover { background: #5568d3; }
+.screenshot-note { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin: 10px 0; border-radius: 5px; color: #856404; }
+table { width: 100%; border-collapse: collapse; background: white; margin-top: 10px; }
+th, td { border: 1px solid #dee2e6; padding: 10px; text-align: left; font-size: 14px; }
+th { background: #667eea; color: white; }
+tr:nth-child(even) { background: #f8f9fa; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🚀 Демоэкзамен - Модуль 1</h1>
-            <p>Базовая настройка сети + команды для отчёта</p>
+<div class="container">
+    <div class="header">
+        <h1> Демоэкзамен - Шпаргалка</h1>
+        <p>Модуль 1: Настройка сети + команды для отчёта</p>
+    </div>
+    
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 Поиск команд... (VLAN, OSPF, DHCP, GRE)">
+    </div>
+    
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('addressing', this)"> Адресация</button>
+        <button class="tab" onclick="showTab('hq-rtr', this)">🖥️ HQ-RTR</button>
+        <button class="tab" onclick="showTab('hq-srv', this)">💾 HQ-SRV</button>
+        <button class="tab" onclick="showTab('hq-cli', this)">💻 HQ-CLI</button>
+        <button class="tab" onclick="showTab('isp', this)"> ISP</button>
+        <button class="tab" onclick="showTab('br-rtr', this)">🏢 BR-RTR</button>
+        <button class="tab" onclick="showTab('br-srv', this)">📡 BR-SRV</button>
+        <button class="tab" onclick="showTab('report', this)">📝 Для отчёта</button>
+    </div>
+
+    <!-- ТАБЛИЦА АДРЕСАЦИИ -->
+    <div id="addressing" class="content active">
+        <div class="section">
+            <div class="section-title">📋 Таблица 1. Таблица адресации</div>
+            <table>
+                <thead><tr><th>Устройство</th><th>Интерфейс</th><th>IP-адрес</th><th>Маска</th><th>VLAN</th><th>Подсеть</th><th>Шлюз</th></tr></thead>
+                <tbody>
+                    <tr><td rowspan="3">ISP</td><td>ens18</td><td>DHCP</td><td>DHCP</td><td>-</td><td>DHCP</td><td>DHCP</td></tr>
+                    <tr><td>ens19</td><td>172.16.1.1</td><td>/28</td><td>-</td><td>172.16.1.0/28</td><td>-</td></tr>
+                    <tr><td>ens20</td><td>172.16.2.1</td><td>/28</td><td>-</td><td>172.16.2.0/28</td><td>-</td></tr>
+                    <tr><td rowspan="5">HQ-RTR</td><td>int0 (to ISP)</td><td>172.16.1.2</td><td>/28</td><td>-</td><td>172.16.1.0/28</td><td>172.16.1.1</td></tr>
+                    <tr><td>int1.100</td><td>192.168.100.1</td><td>/27</td><td>100</td><td>192.168.100.0/27</td><td>-</td></tr>
+                    <tr><td>int1.200</td><td>192.168.200.1</td><td>/24</td><td>200</td><td>192.168.200.0/24</td><td>-</td></tr>
+                    <tr><td>int1.999</td><td>192.168.99.1</td><td>/29</td><td>999</td><td>192.168.99.0/29</td><td>-</td></tr>
+                    <tr><td>Tunnel.0</td><td>10.10.10.1</td><td>/30</td><td>-</td><td>10.10.10.0/30</td><td>-</td></tr>
+                    <tr><td rowspan="3">BR-RTR</td><td>int0 (to ISP)</td><td>172.16.2.2</td><td>/28</td><td>-</td><td>172.16.2.0/28</td><td>172.16.2.1</td></tr>
+                    <tr><td>int1 (to BR-SRV)</td><td>192.168.0.1</td><td>/28</td><td>-</td><td>192.168.0.0/28</td><td>-</td></tr>
+                    <tr><td>Tunnel.0</td><td>10.10.10.2</td><td>/30</td><td>-</td><td>10.10.10.0/30</td><td>-</td></tr>
+                    <tr><td>HQ-SRV</td><td>ens18</td><td>192.168.100.2</td><td>/27</td><td>100</td><td>192.168.100.0/27</td><td>192.168.100.1</td></tr>
+                    <tr><td>BR-SRV</td><td>ens18</td><td>192.168.0.2</td><td>/28</td><td>-</td><td>192.168.0.0/28</td><td>192.168.0.1</td></tr>
+                    <tr><td>HQ-CLI</td><td>ens18</td><td>192.168.200.2</td><td>/24</td><td>200</td><td>192.168.200.0/24</td><td>192.168.200.1</td></tr>
+                </tbody>
+            </table>
         </div>
-        
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 Поиск команд... (VLAN, OSPF, DHCP, GRE)">
-        </div>
-        
-        <div class="tabs">
-            <button class="tab active" onclick="showTab('addressing')">📋 Таблица адресации</button>
-            <button class="tab" onclick="showTab('hq-rtr')">🖥️ HQ-RTR</button>
-            <button class="tab" onclick="showTab('hq-srv')">💾 HQ-SRV</button>
-            <button class="tab" onclick="showTab('hq-cli')">💻 HQ-CLI</button>
-            <button class="tab" onclick="showTab('isp')">🌐 ISP</button>
-            <button class="tab" onclick="showTab('br-rtr')">🏢 BR-RTR</button>
-            <button class="tab" onclick="showTab('br-srv')">️ BR-SRV</button>
-            <button class="tab" onclick="showTab('report')">📝 Для отчёта</button>
-        </div>
-        
-        <!-- ТАБЛИЦА АДРЕСАЦИИ -->
-        <div id="addressing" class="content active">
-            <div class="section">
-                <div class="section-title">📋 Таблица 1. Таблица адресации (заполни в отчёт)</div>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Устройство</th>
-                                <th>Интерфейс</th>
-                                <th>IP-адрес</th>
-                                <th>Маска</th>
-                                <th>VLAN</th>
-                                <th>Подсеть</th>
-                                <th>Шлюз</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td rowspan="3">ISP</td>
-                                <td>ens18</td>
-                                <td>DHCP</td>
-                                <td>DHCP</td>
-                                <td>-</td>
-                                <td>DHCP</td>
-                                <td>DHCP</td>
-                            </tr>
-                            <tr>
-                                <td>ens19</td>
-                                <td>172.16.1.1</td>
-                                <td>/28</td>
-                                <td>-</td>
-                                <td>172.16.1.0/28</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>ens20</td>
-                                <td>172.16.2.1</td>
-                                <td>/28</td>
-                                <td>-</td>
-                                <td>172.16.2.0/28</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="5">HQ-RTR</td>
-                                <td>int0 (to ISP)</td>
-                                <td>172.16.1.2</td>
-                                <td>/28</td>
-                                <td>-</td>
-                                <td>172.16.1.0/28</td>
-                                <td>172.16.1.1</td>
-                            </tr>
-                            <tr>
-                                <td>int1.100</td>
-                                <td>192.168.100.1</td>
-                                <td>/27</td>
-                                <td>100</td>
-                                <td>192.168.100.0/27</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>int1.200</td>
-                                <td>192.168.200.1</td>
-                                <td>/24</td>
-                                <td>200</td>
-                                <td>192.168.200.0/24</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>int1.999</td>
-                                <td>192.168.99.1</td>
-                                <td>/29</td>
-                                <td>999</td>
-                                <td>192.168.99.0/29</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Tunnel.0</td>
-                                <td>10.10.10.1</td>
-                                <td>/30</td>
-                                <td>-</td>
-                                <td>10.10.10.0/30</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="3">BR-RTR</td>
-                                <td>int0 (to ISP)</td>
-                                <td>172.16.2.2</td>
-                                <td>/28</td>
-                                <td>-</td>
-                                <td>172.16.2.0/28</td>
-                                <td>172.16.2.1</td>
-                            </tr>
-                            <tr>
-                                <td>int1 (to BR-SRV)</td>
-                                <td>192.168.0.1</td>
-                                <td>/28</td>
-                                <td>-</td>
-                                <td>192.168.0.0/28</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Tunnel.0</td>
-                                <td>10.10.10.2</td>
-                                <td>/30</td>
-                                <td>-</td>
-                                <td>10.10.10.0/30</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>HQ-SRV</td>
-                                <td>ens18 (to HQ-RTR)</td>
-                                <td>192.168.100.2</td>
-                                <td>/27</td>
-                                <td>100</td>
-                                <td>192.168.100.0/27</td>
-                                <td>192.168.100.1</td>
-                            </tr>
-                            <tr>
-                                <td>BR-SRV</td>
-                                <td>ens18 (to BR-RTR)</td>
-                                <td>192.168.0.2</td>
-                                <td>/28</td>
-                                <td>-</td>
-                                <td>192.168.0.0/28</td>
-                                <td>192.168.0.1</td>
-                            </tr>
-                            <tr>
-                                <td>HQ-CLI</td>
-                                <td>ens18 (to HQ-RTR)</td>
-                                <td>192.168.200.2</td>
-                                <td>/24</td>
-                                <td>200</td>
-                                <td>192.168.200.0/24</td>
-                                <td>192.168.200.1</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+    </div>
+
+    <!-- HQ-RTR -->
+    <div id="hq-rtr" class="content">
+        <div class="section">
+            <div class="section-title">🖥️ HQ-RTR - Настройка</div>
+            <div class="subsection">
+                <h3>📝 Имя хоста</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>hostnamectl set-hostname HQ-RTR.au-team.irpo
+exec bash</pre></div>
             </div>
-        </div>
-        
-        <!-- HQ-RTR -->
-        <div id="hq-rtr" class="content">
-            <div class="section">
-                <div class="section-title">🖥️ HQ-RTR - Полная настройка</div>
-                
-                <div class="subsection">
-                    <h3>📝 Имя хоста</h3>
-                    <div class="code-block">
-                        <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                        <pre>hostnamectl set-hostname HQ-RTR.au-team.irpo
-exec bash</pre>
-                    </div>
-                </div>
-                
-                <div class="subsection">
-                    <h3>🌐 Настройка внешнего интерфейса (to ISP)</h3>
-                    <div class="code-block">
-                        <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                        <pre>rm -rf /etc/net/ifaces/enp7s1
+            <div class="subsection">
+                <h3> Внешний интерфейс (to ISP)</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>rm -rf /etc/net/ifaces/enp7s1
 mkdir /etc/net/ifaces/enp7s1
 echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
 echo "172.16.1.2/28" > /etc/net/ifaces/enp7s1/ipv4address
 echo "default via 172.16.1.1" > /etc/net/ifaces/enp7s1/ipv4route
-echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1/resolv.conf</pre>
-                    </div>
-                </div>
-                
-                <div class="subsection">
-                    <h3>👤 Создание пользователя net_admin</h3>
-                    <div class="code-block">
-                        <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                        <pre>useradd net_admin
+echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1/resolv.conf</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>👤 Пользователь net_admin (пароль P@ssw0rd)</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>useradd net_admin
 passwd net_admin
-# Введите пароль: NaNo123321!
 usermod -aG wheel net_admin
-echo "net_admin ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/net_admin</pre>
-                    </div>
-                </div>
-                
-                <div class="subsection">
-                    <h3>🔀 Настройка VLAN (100, 200, 999)</h3>
-                    <div class="code-block">
-                        <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                        <pre># Физический интерфейс
-mkdir /etc/net/ifaces/enp7s2
+echo "net_admin ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/net_admin</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>🔀 VLAN (100, 200, 999)</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>mkdir /etc/net/ifaces/enp7s2
 echo "TYPE=eth" > /etc/net/ifaces/enp7s2/options 
-
-# VLAN 100 (192.168.100.0/27)
 mkdir /etc/net/ifaces/enp7s2.100
-cat <<EOF > /etc/net/ifaces/enp7s2.100/options
+cat &lt;&lt;EOF > /etc/net/ifaces/enp7s2.100/options
 TYPE=vlan
 HOST=enp7s2
 VID=100
 EOF
-echo "1
+mkdir /etc/net/ifaces/enp7s2.200
+cat &lt;&lt;EOF > /etc/net/ifaces/enp7s2.200/options
+TYPE=vlan
+HOST=enp7s2
+VID=200
+EOF
+mkdir /etc/net/ifaces/enp7s2.999
+cat &lt;&lt;EOF > /etc/net/ifaces/enp7s2.999/options
+TYPE=vlan
+HOST=enp7s2
+VID=999
+EOF
+echo "192.168.100.1/27" > /etc/net/ifaces/enp7s2.100/ipv4address
+echo "192.168.200.1/24" > /etc/net/ifaces/enp7s2.200/ipv4address
+echo "192.168.99.1/29" > /etc/net/ifaces/enp7s2.999/ipv4address
+systemctl restart network 
+ip -c -br a</pre></div>
+                <div class="screenshot-note"> <b>Для отчёта 1.2:</b> Скриншот команды <code>ip -c -br a</code></div>
+            </div>
+            <div class="subsection">
+                <h3> GRE туннель</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>mkdir /etc/net/ifaces/gre1/
+cat &lt;&lt;EOF > /etc/net/ifaces/gre1/options
+TYPE=iptun
+TUNTYPE=gre
+TUNLOCAL=172.16.1.2
+TUNREMOTE=172.16.2.2
+TUNOPTIONS='ttl 64'
+HOST=enp7s1
+EOF
+echo "10.10.10.1/30" > /etc/net/ifaces/gre1/ipv4address
+systemctl restart network
+ip -c -br -4 a</pre></div>
+                <div class="screenshot-note">📸 <b>Для отчёта 1.3:</b> Скриншот <code>ip -c -br -4 a</code> (виден gre1)</div>
+            </div>
+            <div class="subsection">
+                <h3>🔄 OSPF (FRR)</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>apt-get update 
+apt-get install frr
+sed -i "s/ospfd=no/ospfd=yes/g" /etc/frr/daemons
+systemctl enable --now frr.service
+vtysh
+configure terminal 
+router ospf
+passive-interface default
+network 10.10.10.0/30 area 0 
+network 192.168.100.0/27 area 0 
+network 192.168.200.0/24 area 0
+network 192.168.99.0/29 area 0
+exit
+interface gre1 
+no ip ospf passive
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 P@ssw0rd
+end
+write memory
+exit</pre></div>
+                <div class="screenshot-note">📸 <b>Для отчёта 1.4:</b> В vtysh: <code>show ip ospf neighbor</code> (статус FULL)</div>
+            </div>
+            <div class="subsection">
+                <h3>📤 Форвардинг и 🔥 NAT</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g" /etc/net/sysctl.conf
+systemctl restart network 
+apt-get install iptables
+iptables -t nat -A POSTROUTING -o enp7s1 -j MASQUERADE
+iptables-save >> /etc/sysconfig/iptables
+systemctl enable --now iptables.service</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>🌐 DHCP сервер</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)"> Копировать</button><pre>apt-get install dhcp-server
+sed -i "s/DHCPDRAGS=/DHCPDRAGS='enp7s2.200'/g" /etc/sysconfig/dhcpd
+cat &lt;&lt;EOF > /etc/dhcp/dhcpd.conf
+option domain-name "au-team.irpo";
+option domain-name-servers 192.168.100.2;
+default-lease-time 6000;
+max-lease-time 72000;
+authoritative;
+subnet 192.168.200.0 netmask 255.255.255.0 {
+  range 192.168.200.2 192.168.200.254;
+  option routers 192.168.200.1;
+}
+EOF
+systemctl enable --now dhcpd.service</pre></div>
+                <div class="screenshot-note">📸 <b>Для отчёта 1.5:</b> <code>systemctl status dhcpd</code> и <code>journalctl -eu dhcpd.service -n 20 --no-pager</code></div>
+            </div>
+            <div class="subsection">
+                <h3>🕐 Часовой пояс</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)"> Копировать</button><pre>timedatectl set-timezone Europe/Moscow</pre></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HQ-SRV -->
+    <div id="hq-srv" class="content">
+        <div class="section">
+            <div class="section-title">💾 HQ-SRV - Настройка</div>
+            <div class="subsection">
+                <h3>📝 Имя и сеть (VLAN 100)</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>hostnamectl set-hostname HQ-SRV.au-team.irpo
+exec bash
+rm -rf /etc/net/ifaces/enp7s1
+mkdir /etc/net/ifaces/enp7s1
+echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
+mkdir /etc/net/ifaces/enp7s1.100
+cat &lt;&lt;EOF > /etc/net/ifaces/enp7s1.100/options
+TYPE=vlan
+HOST=enp7s1
+VID=100
+EOF
+echo "192.168.100.2/27" > /etc/net/ifaces/enp7s1.100/ipv4address
+echo "default via 192.168.100.1" > /etc/net/ifaces/enp7s1.100/ipv4route
+echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1.100/resolv.conf
+systemctl restart network</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>👤 Пользователь sshuser и SSH (порт 2026)</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>useradd sshuser -u 2026
+passwd sshuser
+usermod -aG wheel sshuser 
+echo "sshuser ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/sshuser
+echo "Port 2026" >> /etc/openssh/sshd_config
+echo "AllowUsers sshuser" >> /etc/openssh/sshd_config
+echo "MaxAuthTries 2" >> /etc/openssh/sshd_config
+echo "Banner /etc/openssh/banner" >> /etc/openssh/sshd_config
+echo "Authorized access only" >> /etc/openssh/banner
+systemctl restart sshd.service</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>🌐 DNSmasq</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>apt-get install dnsmasq
+cat &lt;&lt;EOF > /etc/dnsmasq.conf
+no-hosts
+server=77.88.8.8
+cache-size=1000
+all-servers
+no-negcache
+interface=*
+host-record=hq-rtr.au-team.irpo,192.168.100.1
+host-record=hq-rtr.au-team.irpo,192.168.200.1
+host-record=hq-rtr.au-team.irpo,192.168.99.1
+host-record=hq-srv.au-team.irpo,192.168.100.2
+host-record=hq-cli.au-team.irpo,192.168.200.2
+address=/br-rtr.au-team.irpo/192.168.0.1
+address=/br-srv.au-team.irpo/192.168.0.2
+address=/docker.au-team.irpo/172.16.1.1
+address=/web.au-team.irpo/172.16.2.1
+EOF
+systemctl enable --now dnsmasq.service
+timedatectl set-timezone Europe/Moscow</pre></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HQ-CLI -->
+    <div id="hq-cli" class="content">
+        <div class="section">
+            <div class="section-title">💻 HQ-CLI - Настройка</div>
+            <div class="subsection">
+                <h3>📝 Имя хоста</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)"> Копировать</button><pre>hostnamectl set-hostname HQ-CLI.au-team.irpo
+exec bash</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>🔍 Проверка DNS (скриншоты для отчёта)</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>host hq-rtr.au-team.irpo
+host hq-srv.au-team.irpo
+host hq-cli.au-team.irpo
+host ya.ru</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>🕐 Часовой пояс</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)"> Копировать</button><pre>timedatectl set-timezone Europe/Moscow</pre></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ISP -->
+    <div id="isp" class="content">
+        <div class="section">
+            <div class="section-title">🌐 ISP - Настройка</div>
+            <div class="subsection">
+                <h3>📝 Имя и порты</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>hostnamectl set-hostname ISP
+exec bash
+mkdir /etc/net/ifaces/enp7s2
+echo "TYPE=eth" > /etc/net/ifaces/enp7s2/options 
+echo "172.16.1.1/28" > /etc/net/ifaces/enp7s2/ipv4address
+mkdir /etc/net/ifaces/enp7s3
+echo "TYPE=eth" > /etc/net/ifaces/enp7s3/options
+echo "172.16.2.1/28" > /etc/net/ifaces/enp7s3/ipv4address</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>📤 Форвардинг и  NAT</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g" /etc/net/sysctl.conf
+systemctl restart network
+apt-get update && apt-get install iptables
+iptables -t nat -A POSTROUTING -o enp7s1 -j MASQUERADE
+iptables-save >> /etc/sysconfig/iptables
+systemctl enable --now iptables.service
+timedatectl set-timezone Europe/Moscow</pre></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BR-RTR -->
+    <div id="br-rtr" class="content">
+        <div class="section">
+            <div class="section-title">🏢 BR-RTR - Настройка</div>
+            <div class="subsection">
+                <h3>📝 Имя и порты</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>hostnamectl set-hostname BR-RTR.au-team.irpo
+exec bash
+rm -rf /etc/net/ifaces/enp7s1
+mkdir /etc/net/ifaces/enp7s1
+echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
+echo "172.16.2.2/28" > /etc/net/ifaces/enp7s1/ipv4address
+echo "default via 172.16.2.1" > /etc/net/ifaces/enp7s1/ipv4route
+echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1/resolv.conf
+mkdir /etc/net/ifaces/enp7s2
+echo "TYPE=eth" > /etc/net/ifaces/enp7s2/options 
+echo "192.168.0.1/28" > /etc/net/ifaces/enp7s2/ipv4address
+systemctl restart network</pre></div>
+            </div>
+            <div class="subsection">
+                <h3> GRE туннель</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>mkdir /etc/net/ifaces/gre1/
+cat &lt;&lt;EOF > /etc/net/ifaces/gre1/options
+TYPE=iptun
+TUNTYPE=gre
+TUNLOCAL=172.16.2.2
+TUNREMOTE=172.16.1.2
+TUNOPTIONS='ttl 64'
+HOST=enp7s1
+EOF
+echo "10.10.10.2/30" > /etc/net/ifaces/gre1/ipv4address
+systemctl restart network</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>🔄 OSPF</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>apt-get update && apt-get install frr
+sed -i "s/ospfd=no/ospfd=yes/g" /etc/frr/daemons
+systemctl enable --now frr.service
+vtysh
+configure terminal 
+router ospf
+passive-interface default
+network 10.10.10.0/30 area 0 
+network 192.168.0.0/28 area 0 
+exit
+interface gre1 
+no ip ospf passive
+ip ospf authentication message-digest
+ip ospf message-digest-key 1 md5 P@ssw0rd
+end
+write memory
+exit</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>👤 Пользователь и NAT</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>useradd net_admin
+passwd net_admin
+usermod -aG wheel net_admin
+echo "net_admin ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/net_admin
+sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g" /etc/net/sysctl.conf
+systemctl restart network 
+apt-get install iptables
+iptables -t nat -A POSTROUTING -o enp7s1 -j MASQUERADE
+iptables-save >> /etc/sysconfig/iptables
+systemctl enable --now iptables.service
+timedatectl set-timezone Europe/Moscow</pre></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BR-SRV -->
+    <div id="br-srv" class="content">
+        <div class="section">
+            <div class="section-title">📡 BR-SRV - Настройка</div>
+            <div class="subsection">
+                <h3>📝 Имя, сеть и SSH</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>hostnamectl set-hostname BR-SRV.au-team.irpo
+exec bash
+rm -rf /etc/net/ifaces/enp7s1
+mkdir /etc/net/ifaces/enp7s1
+echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
+echo "192.168.0.2/28" > /etc/net/ifaces/enp7s1/ipv4address
+echo "default via 192.168.0.1" > /etc/net/ifaces/enp7s1/ipv4route
+echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1/resolv.conf
+systemctl restart network 
+useradd sshuser -u 2026
+passwd sshuser
+usermod -aG wheel sshuser 
+echo "sshuser ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/sshuser
+echo "Port 2026" >> /etc/openssh/sshd_config
+echo "AllowUsers sshuser" >> /etc/openssh/sshd_config
+echo "MaxAuthTries 2" >> /etc/openssh/sshd_config
+echo "Banner /etc/openssh/banner" >> /etc/openssh/sshd_config
+echo "Authorized access only" >> /etc/openssh/banner
+systemctl restart sshd.service
+timedatectl set-timezone Europe/Moscow</pre></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ДЛЯ ОТЧЁТА -->
+    <div id="report" class="content">
+        <div class="section">
+            <div class="section-title"> Команды для скриншотов в отчёт</div>
+            <div class="subsection">
+                <h3>1.2 VLAN</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre># На HQ-RTR:
+ip -c -br a
+ip -c r
+ping -c 4 192.168.100.2</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>1.3 GRE туннель</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre># На HQ-RTR:
+ip -c -br a | grep gre
+ping -c 4 10.10.10.2
+# На BR-RTR:
+ping -c 4 10.10.10.1</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>1.4 OSPF</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre># На HQ-RTR и BR-RTR (в vtysh):
+vtysh
+show ip ospf neighbor
+show ip route ospf
+exit</pre></div>
+            </div>
+            <div class="subsection">
+                <h3>1.5 DHCP</h3>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre># На HQ-RTR:
+systemctl status dhcpd
+journalctl -eu dhcpd.service -n 20 --no-pager
+# На HQ-CLI:
+ip -c -br a</pre></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function showTab(tabId, btn) {
+    var contents = document.querySelectorAll('.content');
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].classList.remove('active');
+    }
+    var tabs = document.querySelectorAll('.tab');
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove('active');
+    }
+    document.getElementById(tabId).classList.add('active');
+    if (btn) btn.classList.add('active');
+}
+
+function copyCode(btn) {
+    var pre = btn.parentElement.querySelector('pre');
+    var text = pre.innerText;
+    navigator.clipboard.writeText(text).then(function() {
+        var oldText = btn.innerText;
+        btn.innerText = '✅ Скопировано!';
+        setTimeout(function() { btn.innerText = oldText; }, 2000);
+    }).catch(function() {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        btn.innerText = '✅ Скопировано!';
+        setTimeout(function() { btn.innerText = '📋 Копировать'; }, 2000);
+    });
+}
+
+document.getElementById('searchInput').addEventListener('input', function(e) {
+    var term = e.target.value.toLowerCase();
+    var subsections = document.querySelectorAll('.subsection');
+    for (var i = 0; i < subsections.length; i++) {
+        subsections[i].style.display = subsections[i].innerText.toLowerCase().indexOf(term) !== -1 ? 'block' : 'none';
+    }
+});
+</script>
+</body>
+</html>
