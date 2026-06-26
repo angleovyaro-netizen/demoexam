@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Демоэкзамен - Шпаргалка</title>
+    <title>Демоэкзамен - Шпаргалка Модуль 1</title>
     <style>
         * {
             margin: 0;
@@ -19,7 +19,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
             border-radius: 15px;
@@ -110,6 +110,24 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            background: #667eea;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        
+        .subsection {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid #28a745;
+        }
+        
+        .subsection h3 {
+            color: #28a745;
+            margin-bottom: 10px;
+            font-size: 1.2em;
         }
         
         .code-block {
@@ -155,9 +173,43 @@
             background: #28a745;
         }
         
-        .comment {
-            color: #6a9955;
-            font-style: italic;
+        .screenshot-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .screenshot-note strong {
+            color: #856404;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
         }
         
         .highlight {
@@ -184,709 +236,219 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 Демоэкзамен - Шпаргалка</h1>
-            <p>Все команды для настройки сети</p>
+            <h1>🚀 Демоэкзамен - Модуль 1</h1>
+            <p>Базовая настройка сети + команды для отчёта</p>
         </div>
         
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 Поиск команд... (например: OSPF, VLAN, SSH)">
+            <input type="text" id="searchInput" placeholder="🔍 Поиск команд... (VLAN, OSPF, DHCP, GRE)">
         </div>
         
         <div class="tabs">
-            <button class="tab active" onclick="showTab('hq-rtr')">HQ-RTR</button>
-            <button class="tab" onclick="showTab('hq-srv')">HQ-SRV</button>
-            <button class="tab" onclick="showTab('hq-cli')">HQ-CLI</button>
-            <button class="tab" onclick="showTab('isp')">ISP</button>
-            <button class="tab" onclick="showTab('br-rtr')">BR-RTR</button>
-            <button class="tab" onclick="showTab('br-srv')">BR-SRV</button>
+            <button class="tab active" onclick="showTab('addressing')">📋 Таблица адресации</button>
+            <button class="tab" onclick="showTab('hq-rtr')">🖥️ HQ-RTR</button>
+            <button class="tab" onclick="showTab('hq-srv')">💾 HQ-SRV</button>
+            <button class="tab" onclick="showTab('hq-cli')">💻 HQ-CLI</button>
+            <button class="tab" onclick="showTab('isp')">🌐 ISP</button>
+            <button class="tab" onclick="showTab('br-rtr')">🏢 BR-RTR</button>
+            <button class="tab" onclick="showTab('br-srv')">️ BR-SRV</button>
+            <button class="tab" onclick="showTab('report')">📝 Для отчёта</button>
+        </div>
+        
+        <!-- ТАБЛИЦА АДРЕСАЦИИ -->
+        <div id="addressing" class="content active">
+            <div class="section">
+                <div class="section-title">📋 Таблица 1. Таблица адресации (заполни в отчёт)</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Устройство</th>
+                                <th>Интерфейс</th>
+                                <th>IP-адрес</th>
+                                <th>Маска</th>
+                                <th>VLAN</th>
+                                <th>Подсеть</th>
+                                <th>Шлюз</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3">ISP</td>
+                                <td>ens18</td>
+                                <td>DHCP</td>
+                                <td>DHCP</td>
+                                <td>-</td>
+                                <td>DHCP</td>
+                                <td>DHCP</td>
+                            </tr>
+                            <tr>
+                                <td>ens19</td>
+                                <td>172.16.1.1</td>
+                                <td>/28</td>
+                                <td>-</td>
+                                <td>172.16.1.0/28</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>ens20</td>
+                                <td>172.16.2.1</td>
+                                <td>/28</td>
+                                <td>-</td>
+                                <td>172.16.2.0/28</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="5">HQ-RTR</td>
+                                <td>int0 (to ISP)</td>
+                                <td>172.16.1.2</td>
+                                <td>/28</td>
+                                <td>-</td>
+                                <td>172.16.1.0/28</td>
+                                <td>172.16.1.1</td>
+                            </tr>
+                            <tr>
+                                <td>int1.100</td>
+                                <td>192.168.100.1</td>
+                                <td>/27</td>
+                                <td>100</td>
+                                <td>192.168.100.0/27</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>int1.200</td>
+                                <td>192.168.200.1</td>
+                                <td>/24</td>
+                                <td>200</td>
+                                <td>192.168.200.0/24</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>int1.999</td>
+                                <td>192.168.99.1</td>
+                                <td>/29</td>
+                                <td>999</td>
+                                <td>192.168.99.0/29</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Tunnel.0</td>
+                                <td>10.10.10.1</td>
+                                <td>/30</td>
+                                <td>-</td>
+                                <td>10.10.10.0/30</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">BR-RTR</td>
+                                <td>int0 (to ISP)</td>
+                                <td>172.16.2.2</td>
+                                <td>/28</td>
+                                <td>-</td>
+                                <td>172.16.2.0/28</td>
+                                <td>172.16.2.1</td>
+                            </tr>
+                            <tr>
+                                <td>int1 (to BR-SRV)</td>
+                                <td>192.168.0.1</td>
+                                <td>/28</td>
+                                <td>-</td>
+                                <td>192.168.0.0/28</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Tunnel.0</td>
+                                <td>10.10.10.2</td>
+                                <td>/30</td>
+                                <td>-</td>
+                                <td>10.10.10.0/30</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>HQ-SRV</td>
+                                <td>ens18 (to HQ-RTR)</td>
+                                <td>192.168.100.2</td>
+                                <td>/27</td>
+                                <td>100</td>
+                                <td>192.168.100.0/27</td>
+                                <td>192.168.100.1</td>
+                            </tr>
+                            <tr>
+                                <td>BR-SRV</td>
+                                <td>ens18 (to BR-RTR)</td>
+                                <td>192.168.0.2</td>
+                                <td>/28</td>
+                                <td>-</td>
+                                <td>192.168.0.0/28</td>
+                                <td>192.168.0.1</td>
+                            </tr>
+                            <tr>
+                                <td>HQ-CLI</td>
+                                <td>ens18 (to HQ-RTR)</td>
+                                <td>192.168.200.2</td>
+                                <td>/24</td>
+                                <td>200</td>
+                                <td>192.168.200.0/24</td>
+                                <td>192.168.200.1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         
         <!-- HQ-RTR -->
-        <div id="hq-rtr" class="content active">
+        <div id="hq-rtr" class="content">
             <div class="section">
-                <div class="section-title">📝 Имя хоста</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>hostnamectl set-hostname HQ-RTR.au-team.irpo
+                <div class="section-title">🖥️ HQ-RTR - Полная настройка</div>
+                
+                <div class="subsection">
+                    <h3>📝 Имя хоста</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                        <pre>hostnamectl set-hostname HQ-RTR.au-team.irpo
 exec bash</pre>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌐 Настройка портов</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>rm -rf /etc/net/ifaces/enp7s1
+                
+                <div class="subsection">
+                    <h3>🌐 Настройка внешнего интерфейса (to ISP)</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                        <pre>rm -rf /etc/net/ifaces/enp7s1
 mkdir /etc/net/ifaces/enp7s1
 echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
 echo "172.16.1.2/28" > /etc/net/ifaces/enp7s1/ipv4address
 echo "default via 172.16.1.1" > /etc/net/ifaces/enp7s1/ipv4route
 echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1/resolv.conf</pre>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">👤 Пользователи (пароль: NaNo123321!)</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>useradd net_admin
+                
+                <div class="subsection">
+                    <h3>👤 Создание пользователя net_admin</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                        <pre>useradd net_admin
 passwd net_admin
+# Введите пароль: NaNo123321!
 usermod -aG wheel net_admin
 echo "net_admin ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/net_admin</pre>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔀 Коммутация VLAN</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>mkdir /etc/net/ifaces/enp7s2
+                
+                <div class="subsection">
+                    <h3>🔀 Настройка VLAN (100, 200, 999)</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                        <pre># Физический интерфейс
+mkdir /etc/net/ifaces/enp7s2
 echo "TYPE=eth" > /etc/net/ifaces/enp7s2/options 
 
+# VLAN 100 (192.168.100.0/27)
 mkdir /etc/net/ifaces/enp7s2.100
 cat <<EOF > /etc/net/ifaces/enp7s2.100/options
 TYPE=vlan
 HOST=enp7s2
 VID=100
 EOF
-
-mkdir /etc/net/ifaces/enp7s2.200
-cat <<EOF > /etc/net/ifaces/enp7s2.200/options
-TYPE=vlan
-HOST=enp7s2
-VID=200
-EOF
-
-mkdir /etc/net/ifaces/enp7s2.999
-cat <<EOF > /etc/net/ifaces/enp7s2.999/options
-TYPE=vlan
-HOST=enp7s2
-VID=999
-EOF
-
-echo "192.168.100.1/27" > /etc/net/ifaces/enp7s2.100/ipv4address
-echo "192.168.200.1/24" > /etc/net/ifaces/enp7s2.200/ipv4address
-echo "192.168.99.1/29" > /etc/net/ifaces/enp7s2.999/ipv4address
-
-systemctl restart network 
-ip -c -br a</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌉 GRE туннель</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>mkdir /etc/net/ifaces/gre1/
-cat <<EOF > /etc/net/ifaces/gre1/options
-TYPE=iptun
-TUNTYPE=gre
-TUNLOCAL=172.16.1.2
-TUNREMOTE=172.16.2.2
-TUNOPTIONS='ttl 64'
-HOST=enp7s1
-EOF
-
-echo "10.10.10.1/30" > /etc/net/ifaces/gre1/ipv4address
-systemctl restart network
-ip -c -br -4 a</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔄 Динамическая маршрутизация (OSPF)</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>apt-get update 
-apt-get install frr
-sed -i "s/ospfd=no/ospfd=yes/g" /etc/frr/daemons
-cat /etc/frr/daemons
-systemctl enable --now frr.service
-
-vtysh
-configure terminal 
-route ospf
-passive-interface default
-network 10.10.10.0/30 area 0 
-network 192.168.100.0/27 area 0 
-network 192.168.200.0/24 area 0
-network 192.168.99.0/29 area 0
-exit
-interface gre1 
-no ip ospf passive
-ip ospf authentication message-digest
-ip ospf message-digest-key 1 md5 P@ssw0rd
-end
-write memory
-exit</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">✅ Проверка OSPF</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>vtysh 
-show ip ospf neighbor
-exit</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">📤 Форвардинг</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g" /etc/net/sysctl.conf
-systemctl restart network 
-cat /etc/net/sysctl.conf</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔥 NAT</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>apt-get install iptables
-iptables -t nat -A POSTROUTING -o enp7s1 -j MASQUERADE
-iptables-save >> /etc/sysconfig/iptables
-systemctl enable --now iptables.service</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🛠️ Чиним в vtysh</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>vtysh 
-write memory
-exit
-cat /etc/net/sysctl.conf</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌐 DHCP сервер</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>apt-get install dhcp-server
-sed -i "s/DHCPDRAGS=/DHCPDRAGS='enp7s2.200'/g" /etc/sysconfig/dhcpd
-cat /etc/sysconfig/dhcpd
-
-cat <<EOF > /etc/dhcp/dhcpd.conf
-option domain-name "au-team.irpo";
-option domain-name-servers 192.168.100.2;
-default-lease-time 6000;
-max-lease-time 72000;
-authoritative;
-subnet 192.168.200.0 netmask 255.255.255.0 {
-  range 192.168.200.2 192.168.200.254;
-  option routers 192.168.200.1;
-}
-EOF
-
-systemctl enable --now dhcpd.service</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🕐 Часовой пояс</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>timedatectl set-timezone Europe/Moscow</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">📊 Логи DHCP</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>journalctl -eu dhcpd.service -n 20 --no-pager</pre>
-                </div>
-            </div>
-        </div>
-        
-        <!-- HQ-SRV -->
-        <div id="hq-srv" class="content">
-            <div class="section">
-                <div class="section-title">📝 Имя хоста</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>hostnamectl set-hostname HQ-SRV.au-team.irpo
-exec bash</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌐 Настройка портов</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>rm -rf /etc/net/ifaces/enp7s1
-mkdir /etc/net/ifaces/enp7s1
-echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
-
-mkdir /etc/net/ifaces/enp7s1.100
-cat <<EOF > /etc/net/ifaces/enp7s1.100/options
-TYPE=vlan
-HOST=enp7s1
-VID=100
-EOF
-
-echo "192.168.100.2/27" > /etc/net/ifaces/enp7s1.100/ipv4address
-echo "default via 192.168.100.1" > /etc/net/ifaces/enp7s1.100/ipv4route
-echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1.100/resolv.conf
-
-systemctl restart network
-ip -c -br -4 a 
-ip -c r
-cat /etc/resolv.conf</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">👤 Пользователи</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>useradd sshuser -u 2026
-passwd sshuser
-usermod -aG wheel sshuser 
-echo "sshuser ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/sshuser</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔐 SSH настройка</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>echo "Port 2026" >> /etc/openssh/sshd_config
-echo "AllowUsers sshuser" >> /etc/openssh/sshd_config
-echo "MaxAuthTries 2" >> /etc/openssh/sshd_config
-echo "Banner /etc/openssh/banner" >> /etc/openssh/sshd_config
-echo "Authorized access only" >> /etc/openssh/banner
-
-systemctl restart sshd.service</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">✅ Проверка SSH</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>ssh sshuser@127.0.0.1 -p 2026</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌐 DNSmasq</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>apt-get install dnsmasq
-
-cat <<EOF > /etc/dnsmasq.conf
-no-hosts
-server=77.88.8.8
-cache-size=1000
-all-servers
-no-negcache
-interface=*
-host-record=hq-rtr.au-team.irpo,192.168.100.1
-host-record=hq-rtr.au-team.irpo,192.168.200.1
-host-record=hq-rtr.au-team.irpo,192.168.99.1
-host-record=hq-srv.au-team.irpo,192.168.100.2
-host-record=hq-cli.au-team.irpo,192.168.200.2
-address=/br-rtr.au-team.irpo/192.168.0.1
-address=/br-srv.au-team.irpo/192.168.0.2
-address=/docker.au-team.irpo/172.16.1.1
-address=/web.au-team.irpo/172.16.2.1
-EOF
-
-systemctl enable --now dnsmasq.service</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🕐 Часовой пояс</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>timedatectl set-timezone Europe/Moscow</pre>
-                </div>
-            </div>
-        </div>
-        
-        <!-- HQ-CLI -->
-        <div id="hq-cli" class="content">
-            <div class="section">
-                <div class="section-title">📝 Имя хоста</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>hostnamectl set-hostname HQ-CLI.au-team.irpo
-exec bash</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔍 Проверка DNS</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>host hq-rtr.au-team.irpo
-host hq-srv.au-team.irpo
-host hq-cli.au-team.irpo
-host br-rtr.au-team.irpo
-host br-srv.au-team.irpo
-host docker.au-team.irpo
-host web.au-team.irpo
-host ya.ru</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔄 Обратная проверка DNS</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>host 192.168.99.1
-host 192.168.100.1
-host 192.168.200.1
-host 192.168.100.2
-host 192.168.200.2</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🕐 Часовой пояс</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>timedatectl set-timezone Europe/Moscow</pre>
-                </div>
-            </div>
-        </div>
-        
-        <!-- ISP -->
-        <div id="isp" class="content">
-            <div class="section">
-                <div class="section-title">📝 Имя хоста</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>hostnamectl set-hostname ISP
-exec bash</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔧 Serial Console</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>systemctl enable --now serial-getty@ttyS0
-vim /etc/securetty</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌐 Настройка портов</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>mkdir /etc/net/ifaces/enp7s2
-echo "TYPE=eth" > /etc/net/ifaces/enp7s2/options 
-echo "172.16.1.1/28" > /etc/net/ifaces/enp7s2/ipv4address
-
-mkdir /etc/net/ifaces/enp7s3
-echo "TYPE=eth" > /etc/net/ifaces/enp7s3/options
-echo "172.16.2.1/28" > /etc/net/ifaces/enp7s3/ipv4address</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">📤 Форвардинг</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g" /etc/net/sysctl.conf
-systemctl restart network</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔥 NAT</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>apt-get update
-apt-get install iptables
-iptables -t nat -A POSTROUTING -o enp7s1 -j MASQUERADE
-iptables-save >> /etc/sysconfig/iptables
-systemctl enable --now iptables.service</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🕐 Часовой пояс</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>timedatectl set-timezone Europe/Moscow</pre>
-                </div>
-            </div>
-        </div>
-        
-        <!-- BR-RTR -->
-        <div id="br-rtr" class="content">
-            <div class="section">
-                <div class="section-title">📝 Имя хоста</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>hostnamectl set-hostname BR-RTR.au-team.irpo
-exec bash</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌐 Порты ISP</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>rm -rf /etc/net/ifaces/enp7s1
-mkdir /etc/net/ifaces/enp7s1
-echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
-echo "172.16.2.2/28" > /etc/net/ifaces/enp7s1/ipv4address
-echo "default via 172.16.2.1" > /etc/net/ifaces/enp7s1/ipv4route
-echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1/resolv.conf</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌐 Порты Local</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>mkdir /etc/net/ifaces/enp7s2
-echo "TYPE=eth" > /etc/net/ifaces/enp7s2/options 
-echo "192.168.0.1/28" > /etc/net/ifaces/enp7s2/ipv4address
-
-systemctl restart network
-ip -c -br -4 a</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">📤 Форвардинг</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>sed -i "s/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g" /etc/net/sysctl.conf
-systemctl restart network
-cat /etc/net/sysctl.conf</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌉 GRE туннель</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>mkdir /etc/net/ifaces/gre1/
-cat <<EOF > /etc/net/ifaces/gre1/options
-TYPE=iptun
-TUNTYPE=gre
-TUNLOCAL=172.16.2.2
-TUNREMOTE=172.16.1.2
-TUNOPTIONS='ttl 64'
-HOST=enp7s1
-EOF
-
-echo "10.10.10.2/30" > /etc/net/ifaces/gre1/ipv4address
-systemctl restart network
-ip -c -br -4 a</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔄 Динамическая маршрутизация (OSPF)</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>apt-get update 
-apt-get install frr
-sed -i "s/ospfd=no/ospfd=yes/g" /etc/frr/daemons
-cat /etc/frr/daemons
-systemctl enable --now frr.service
-
-vtysh
-configure terminal 
-route ospf
-passive-interface default
-network 10.10.10.0/30 area 0 
-network 192.168.0.0/28 area 0 
-exit
-interface gre1 
-no ip ospf passive
-ip ospf authentication message-digest
-ip ospf message-digest-key 1 md5 P@ssw0rd
-end
-write memory
-exit</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">✅ Проверка OSPF</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>vtysh 
-show ip ospf neighbor
-exit</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔥 NAT</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>apt-get install iptables
-iptables -t nat -A POSTROUTING -o enp7s1 -j MASQUERADE
-iptables-save >> /etc/sysconfig/iptables
-systemctl enable --now iptables.service</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🛠️ Чиним в vtysh</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>vtysh 
-write memory
-exit
-cat /etc/net/sysctl.conf</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">👤 Пользователи</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>useradd net_admin
-passwd net_admin
-usermod -aG wheel net_admin
-echo "net_admin ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/net_admin</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🕐 Часовой пояс</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>timedatectl set-timezone Europe/Moscow</pre>
-                </div>
-            </div>
-        </div>
-        
-        <!-- BR-SRV -->
-        <div id="br-srv" class="content">
-            <div class="section">
-                <div class="section-title">📝 Имя хоста</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>hostnamectl set-hostname BR-SRV.au-team.irpo
-exec bash</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌐 Настройка интерфейса</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>rm -rf /etc/net/ifaces/enp7s1
-mkdir /etc/net/ifaces/enp7s1
-echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
-echo "192.168.0.2/28" > /etc/net/ifaces/enp7s1/ipv4address
-echo "default via 192.168.0.1" > /etc/net/ifaces/enp7s1/ipv4route
-echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1/resolv.conf
-
-systemctl restart network 
-ip -c -br -4 a
-ip r 
-cat /etc/resolv.conf</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">👤 Пользователи</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>useradd sshuser -u 2026
-passwd sshuser
-usermod -aG wheel sshuser 
-echo "sshuser ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/sshuser</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🔐 SSH настройка</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>echo "Port 2026" >> /etc/openssh/sshd_config
-echo "AllowUsers sshuser" >> /etc/openssh/sshd_config
-echo "MaxAuthTries 2" >> /etc/openssh/sshd_config
-echo "Banner /etc/openssh/banner" >> /etc/openssh/sshd_config
-echo "Authorized access only" >> /etc/openssh/banner
-
-systemctl restart sshd.service</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">✅ Проверка SSH</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>ssh sshuser@127.0.0.1 -p 2026</pre>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🕐 Часовой пояс</div>
-                <div class="code-block">
-                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
-                    <pre>timedatectl set-timezone Europe/Moscow</pre>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        function showTab(tabId) {
-            // Hide all contents
-            const contents = document.querySelectorAll('.content');
-            contents.forEach(content => content.classList.remove('active'));
-            
-            // Remove active class from all tabs
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            
-            // Show selected content
-            document.getElementById(tabId).classList.add('active');
-            
-            // Add active class to clicked tab
-            event.target.classList.add('active');
-        }
-        
-        function copyCode(btn) {
-            const codeBlock = btn.nextElementSibling;
-            const code = codeBlock.textContent;
-            
-            navigator.clipboard.writeText(code).then(() => {
-                btn.textContent = '✅ Скопировано!';
-                btn.classList.add('copied');
-                
-                setTimeout(() => {
-                    btn.textContent = '📋 Копировать';
-                    btn.classList.remove('copied');
-                }, 2000);
-            });
-        }
-        
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const sections = document.querySelectorAll('.section');
-            
-            sections.forEach(section => {
-                const text = section.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    section.style.display = 'block';
-                } else {
-                    section.style.display = 'none';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+echo "1
