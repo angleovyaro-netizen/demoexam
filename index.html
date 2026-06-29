@@ -187,7 +187,7 @@ systemctl enable --now iptables.service</pre></div>
             <div class="subsection">
                 <h3>🌐 DHCP сервер</h3>
                 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)"> Копировать</button><pre>apt-get install dhcp-server
-sed -i "s/DHCPDRAGS=/DHCPDRAGS='enp7s2.200'/g" /etc/sysconfig/dhcpd
+sed -i "s/DHCPDARGS=/DHCPDARGS='enp7s2.200'/g" /etc/sysconfig/dhcpd
 cat &lt;&lt;EOF > /etc/dhcp/dhcpd.conf
 option domain-name "au-team.irpo";
 option domain-name-servers 192.168.100.2;
