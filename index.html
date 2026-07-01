@@ -86,20 +86,20 @@ tr:nth-child(even) { background: #f8f9fa; }
             <table>
                 <thead><tr><th>Устройство</th><th>Интерфейс</th><th>IP-адрес</th><th>Маска</th><th>VLAN</th><th>Подсеть</th><th>Шлюз</th></tr></thead>
                 <tbody>
-                    <tr><td rowspan="3">ISP</td><td>ens18</td><td>DHCP</td><td>DHCP</td><td>-</td><td>DHCP</td><td>DHCP</td></tr>
-                    <tr><td>ens19</td><td>172.16.1.1</td><td>/28</td><td>-</td><td>172.16.1.0/28</td><td>-</td></tr>
-                    <tr><td>ens20</td><td>172.16.2.1</td><td>/28</td><td>-</td><td>172.16.2.0/28</td><td>-</td></tr>
-                    <tr><td rowspan="5">HQ-RTR</td><td>int0 (to ISP)</td><td>172.16.1.2</td><td>/28</td><td>-</td><td>172.16.1.0/28</td><td>172.16.1.1</td></tr>
-                    <tr><td>int1.100</td><td>192.168.100.1</td><td>/27</td><td>100</td><td>192.168.100.0/27</td><td>-</td></tr>
-                    <tr><td>int1.200</td><td>192.168.200.1</td><td>/24</td><td>200</td><td>192.168.200.0/24</td><td>-</td></tr>
-                    <tr><td>int1.999</td><td>192.168.99.1</td><td>/29</td><td>999</td><td>192.168.99.0/29</td><td>-</td></tr>
-                    <tr><td>Tunnel.0</td><td>10.10.10.1</td><td>/30</td><td>-</td><td>10.10.10.0/30</td><td>-</td></tr>
-                    <tr><td rowspan="3">BR-RTR</td><td>int0 (to ISP)</td><td>172.16.2.2</td><td>/28</td><td>-</td><td>172.16.2.0/28</td><td>172.16.2.1</td></tr>
-                    <tr><td>int1 (to BR-SRV)</td><td>192.168.0.1</td><td>/28</td><td>-</td><td>192.168.0.0/28</td><td>-</td></tr>
-                    <tr><td>Tunnel.0</td><td>10.10.10.2</td><td>/30</td><td>-</td><td>10.10.10.0/30</td><td>-</td></tr>
-                    <tr><td>HQ-SRV</td><td>ens18</td><td>192.168.100.2</td><td>/27</td><td>100</td><td>192.168.100.0/27</td><td>192.168.100.1</td></tr>
-                    <tr><td>BR-SRV</td><td>ens18</td><td>192.168.0.2</td><td>/28</td><td>-</td><td>192.168.0.0/28</td><td>192.168.0.1</td></tr>
-                    <tr><td>HQ-CLI</td><td>ens18</td><td>192.168.200.2</td><td>/24</td><td>200</td><td>192.168.200.0/24</td><td>192.168.200.1</td></tr>
+                    <tr><td rowspan="3">ISP</td><td>enp7s1</td><td>DHCP</td><td>DHCP</td><td>-</td><td>DHCP</td><td>DHCP</td></tr>
+                    <tr><td>enp7s2</td><td>172.16.10.1</td><td>/28</td><td>-</td><td>172.16.10.0/27</td><td>-</td></tr>
+                    <tr><td>enp7s3</td><td>172.16.20.1</td><td>/28</td><td>-</td><td>172.16.20.0/28</td><td>-</td></tr>
+                    <tr><td rowspan="5">HQ-RTR</td><td>enp7s1</td><td>172.16.10.2</td><td>/27</td><td>-</td><td>172.16.1.0/27</td><td>172.16.10.1</td></tr>
+                    <tr><td>enp7s2.111</td><td>192.168.111.1</td><td>/27</td><td>111</td><td>192.168.111.0/27</td><td>-</td></tr>
+                    <tr><td>enp7s2.211</td><td>192.168.211.1</td><td>/24</td><td>211</td><td>192.168.211.0/28</td><td>-</td></tr>
+                    <tr><td>enp7s2.911</td><td>192.168.99.1</td><td>/29</td><td>911</td><td>192.168.99.0/29</td><td>-</td></tr>
+                    <tr><td>gre1</td><td>10.10.10.1</td><td>/30</td><td>-</td><td>10.10.10.0/30</td><td>-</td></tr>
+                    <tr><td rowspan="3">BR-RTR</td><td>enp7s1</td><td>172.16.20.2</td><td>/28</td><td>-</td><td>172.16.20.0/28</td><td>172.16.20.1</td></tr>
+                    <tr><td>enp7s2 (to BR-SRV)</td><td>192.168.0.1</td><td>/28</td><td>-</td><td>192.168.0.0/28</td><td>-</td></tr>
+                    <tr><td>gre1</td><td>10.10.10.2</td><td>/30</td><td>-</td><td>10.10.10.0/30</td><td>-</td></tr>
+                    <tr><td>HQ-SRV</td><td>enp7s1</td><td>192.168.111.2</td><td>/27</td><td>111</td><td>192.168.111.0/27</td><td>192.168.111.1</td></tr>
+                    <tr><td>BR-SRV</td><td>enp7s1</td><td>192.168.0.2</td><td>/28</td><td>-</td><td>192.168.0.0/28</td><td>192.168.0.1</td></tr>
+                    <tr><td>HQ-CLI</td><td>enp7s1</td><td>192.168.211.2</td><td>/29td><td>211</td><td>192.168.211.0/29</td><td>192.168.211.1</td></tr>
                 </tbody>
             </table>
         </div>
@@ -119,8 +119,8 @@ exec bash</pre></div>
                 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>rm -rf /etc/net/ifaces/enp7s1
 mkdir /etc/net/ifaces/enp7s1
 echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
-echo "172.16.1.2/28" > /etc/net/ifaces/enp7s1/ipv4address
-echo "default via 172.16.1.1" > /etc/net/ifaces/enp7s1/ipv4route
+echo "172.16.10.2/28" > /etc/net/ifaces/enp7s1/ipv4address
+echo "default via 172.16.10.1" > /etc/net/ifaces/enp7s1/ipv4route
 echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1/resolv.conf</pre></div>
             </div>
             <div class="subsection">
@@ -131,30 +131,30 @@ usermod -aG wheel net_admin
 echo "net_admin ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers.d/net_admin</pre></div>
             </div>
             <div class="subsection">
-                <h3>🔀 VLAN (100, 200, 999)</h3>
+                <h3>🔀 VLAN (111, 211, 911)</h3>
                 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>mkdir /etc/net/ifaces/enp7s2
 echo "TYPE=eth" > /etc/net/ifaces/enp7s2/options 
-mkdir /etc/net/ifaces/enp7s2.100
-cat &lt;&lt;EOF > /etc/net/ifaces/enp7s2.100/options
+mkdir /etc/net/ifaces/enp7s2.111
+cat &lt;&lt;EOF > /etc/net/ifaces/enp7s2.111/options
 TYPE=vlan
 HOST=enp7s2
-VID=100
+VID=111
 EOF
-mkdir /etc/net/ifaces/enp7s2.200
-cat &lt;&lt;EOF > /etc/net/ifaces/enp7s2.200/options
+mkdir /etc/net/ifaces/enp7s2.211
+cat &lt;&lt;EOF > /etc/net/ifaces/enp7s2.211/options
 TYPE=vlan
 HOST=enp7s2
-VID=200
+VID=211
 EOF
-mkdir /etc/net/ifaces/enp7s2.999
-cat &lt;&lt;EOF > /etc/net/ifaces/enp7s2.999/options
+mkdir /etc/net/ifaces/enp7s2.911
+cat &lt;&lt;EOF > /etc/net/ifaces/enp7s2.911/options
 TYPE=vlan
 HOST=enp7s2
-VID=999
+VID=911
 EOF
-echo "192.168.100.1/27" > /etc/net/ifaces/enp7s2.100/ipv4address
-echo "192.168.200.1/24" > /etc/net/ifaces/enp7s2.200/ipv4address
-echo "192.168.99.1/29" > /etc/net/ifaces/enp7s2.999/ipv4address
+echo "192.168.111.1/27" > /etc/net/ifaces/enp7s2.111/ipv4address
+echo "192.168.211.1/28" > /etc/net/ifaces/enp7s2.211/ipv4address
+echo "192.168.99.1/29" > /etc/net/ifaces/enp7s2.911/ipv4address
 systemctl restart network 
 ip -c -br a</pre></div>
                 <div class="screenshot-note"> <b>Для отчёта 1.2:</b> Скриншот команды <code>ip -c -br a</code></div>
@@ -165,8 +165,8 @@ ip -c -br a</pre></div>
 cat &lt;&lt;EOF > /etc/net/ifaces/gre1/options
 TYPE=iptun
 TUNTYPE=gre
-TUNLOCAL=172.16.1.2
-TUNREMOTE=172.16.2.2
+TUNLOCAL=172.16.10.2
+TUNREMOTE=172.16.20.2
 TUNOPTIONS='ttl 64'
 HOST=enp7s1
 EOF
@@ -186,8 +186,8 @@ configure terminal
 router ospf
 passive-interface default
 network 10.10.10.0/30 area 0 
-network 192.168.100.0/27 area 0 
-network 192.168.200.0/24 area 0
+network 192.168.111.0/27 area 0 
+network 192.168.211.0/28 area 0
 network 192.168.99.0/29 area 0
 exit
 interface gre1 
@@ -211,16 +211,16 @@ systemctl enable --now iptables.service</pre></div>
             <div class="subsection">
                 <h3>🌐 DHCP сервер</h3>
                 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)"> Копировать</button><pre>apt-get install dhcp-server
-sed -i "s/DHCPDARGS=/DHCPDARGS='enp7s2.200'/g" /etc/sysconfig/dhcpd
+sed -i "s/DHCPDARGS=/DHCPDARGS='enp7s2.211'/g" /etc/sysconfig/dhcpd
 cat &lt;&lt;EOF > /etc/dhcp/dhcpd.conf
 option domain-name "au-team.irpo";
-option domain-name-servers 192.168.100.2;
+option domain-name-servers 192.168.111.2;
 default-lease-time 6000;
 max-lease-time 72000;
 authoritative;
-subnet 192.168.200.0 netmask 255.255.255.0 {
-  range 192.168.200.2 192.168.200.254;
-  option routers 192.168.200.1;
+subnet 192.168.211.0 netmask 255.255.255.240 {
+  range 192.168.211.2 192.168.211.11;
+  option routers 192.168.211.1;
 }
 EOF
 systemctl enable --now dhcpd.service</pre></div>
@@ -238,21 +238,21 @@ systemctl enable --now dhcpd.service</pre></div>
         <div class="section">
             <div class="section-title">💾 HQ-SRV - Настройка</div>
             <div class="subsection">
-                <h3>📝 Имя и сеть (VLAN 100)</h3>
+                <h3>📝 Имя и сеть (VLAN 111)</h3>
                 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre>hostnamectl set-hostname HQ-SRV.au-team.irpo
 exec bash
 rm -rf /etc/net/ifaces/enp7s1
 mkdir /etc/net/ifaces/enp7s1
 echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
-mkdir /etc/net/ifaces/enp7s1.100
-cat &lt;&lt;EOF > /etc/net/ifaces/enp7s1.100/options
+mkdir /etc/net/ifaces/enp7s1.111
+cat &lt;&lt;EOF > /etc/net/ifaces/enp7s1.111/options
 TYPE=vlan
 HOST=enp7s1
-VID=100
+VID=111
 EOF
-echo "192.168.100.2/27" > /etc/net/ifaces/enp7s1.100/ipv4address
-echo "default via 192.168.100.1" > /etc/net/ifaces/enp7s1.100/ipv4route
-echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1.100/resolv.conf
+echo "192.168.111.2/27" > /etc/net/ifaces/enp7s1.111/ipv4address
+echo "default via 192.168.111.1" > /etc/net/ifaces/enp7s1.111/ipv4route
+echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1.111/resolv.conf
 systemctl restart network</pre></div>
             </div>
             <div class="subsection">
@@ -278,15 +278,15 @@ cache-size=1000
 all-servers
 no-negcache
 interface=*
-host-record=hq-rtr.au-team.irpo,192.168.100.1
-host-record=hq-rtr.au-team.irpo,192.168.200.1
+host-record=hq-rtr.au-team.irpo,192.168.111.1
+host-record=hq-rtr.au-team.irpo,192.168.211.1
 host-record=hq-rtr.au-team.irpo,192.168.99.1
-host-record=hq-srv.au-team.irpo,192.168.100.2
-host-record=hq-cli.au-team.irpo,192.168.200.2
+host-record=hq-srv.au-team.irpo,192.168.111.2
+host-record=hq-cli.au-team.irpo,192.168.211.2
 address=/br-rtr.au-team.irpo/192.168.0.1
 address=/br-srv.au-team.irpo/192.168.0.2
-address=/docker.au-team.irpo/172.16.1.1
-address=/web.au-team.irpo/172.16.2.1
+address=/docker.au-team.irpo/172.16.10.1
+address=/web.au-team.irpo/172.16.20.1
 EOF
 systemctl enable --now dnsmasq.service
 timedatectl set-timezone Europe/Moscow</pre></div>
@@ -327,10 +327,10 @@ host ya.ru</pre></div>
 exec bash
 mkdir /etc/net/ifaces/enp7s2
 echo "TYPE=eth" > /etc/net/ifaces/enp7s2/options 
-echo "172.16.1.1/28" > /etc/net/ifaces/enp7s2/ipv4address
+echo "172.16.10.1/28" > /etc/net/ifaces/enp7s2/ipv4address
 mkdir /etc/net/ifaces/enp7s3
 echo "TYPE=eth" > /etc/net/ifaces/enp7s3/options
-echo "172.16.2.1/28" > /etc/net/ifaces/enp7s3/ipv4address</pre></div>
+echo "172.16.20.1/28" > /etc/net/ifaces/enp7s3/ipv4address</pre></div>
             </div>
             <div class="subsection">
                 <h3>📤 Форвардинг и  NAT</h3>
@@ -356,8 +356,8 @@ exec bash
 rm -rf /etc/net/ifaces/enp7s1
 mkdir /etc/net/ifaces/enp7s1
 echo "TYPE=eth" > /etc/net/ifaces/enp7s1/options 
-echo "172.16.2.2/28" > /etc/net/ifaces/enp7s1/ipv4address
-echo "default via 172.16.2.1" > /etc/net/ifaces/enp7s1/ipv4route
+echo "172.16.20.2/28" > /etc/net/ifaces/enp7s1/ipv4address
+echo "default via 172.16.20.1" > /etc/net/ifaces/enp7s1/ipv4route
 echo "nameserver 77.88.8.8" > /etc/net/ifaces/enp7s1/resolv.conf
 mkdir /etc/net/ifaces/enp7s2
 echo "TYPE=eth" > /etc/net/ifaces/enp7s2/options 
@@ -370,8 +370,8 @@ systemctl restart network</pre></div>
 cat &lt;&lt;EOF > /etc/net/ifaces/gre1/options
 TYPE=iptun
 TUNTYPE=gre
-TUNLOCAL=172.16.2.2
-TUNREMOTE=172.16.1.2
+TUNLOCAL=172.16.20.2
+TUNREMOTE=172.16.10.2
 TUNOPTIONS='ttl 64'
 HOST=enp7s1
 EOF
@@ -454,7 +454,7 @@ timedatectl set-timezone Europe/Moscow</pre></div>
                 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button><pre># На HQ-RTR:
 ip -c -br a
 ip -c r
-ping -c 4 192.168.100.2</pre></div>
+ping -c 4 192.168.111.2</pre></div>
             </div>
             <div class="subsection">
                 <h3>1.3 GRE туннель</h3>
