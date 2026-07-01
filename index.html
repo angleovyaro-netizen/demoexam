@@ -87,11 +87,11 @@ tr:nth-child(even) { background: #f8f9fa; }
                 <thead><tr><th>Устройство</th><th>Интерфейс</th><th>IP-адрес</th><th>Маска</th><th>VLAN</th><th>Подсеть</th><th>Шлюз</th></tr></thead>
                 <tbody>
                     <tr><td rowspan="3">ISP</td><td>enp7s1</td><td>DHCP</td><td>DHCP</td><td>-</td><td>DHCP</td><td>DHCP</td></tr>
-                    <tr><td>enp7s2</td><td>172.16.10.1</td><td>/28</td><td>-</td><td>172.16.10.0/27</td><td>-</td></tr>
+                    <tr><td>enp7s2</td><td>172.16.10.1</td><td>/27</td><td>-</td><td>172.16.10.0/27</td><td>-</td></tr>
                     <tr><td>enp7s3</td><td>172.16.20.1</td><td>/28</td><td>-</td><td>172.16.20.0/28</td><td>-</td></tr>
                     <tr><td rowspan="5">HQ-RTR</td><td>enp7s1</td><td>172.16.10.2</td><td>/27</td><td>-</td><td>172.16.1.0/27</td><td>172.16.10.1</td></tr>
                     <tr><td>enp7s2.111</td><td>192.168.111.1</td><td>/27</td><td>111</td><td>192.168.111.0/27</td><td>-</td></tr>
-                    <tr><td>enp7s2.211</td><td>192.168.211.1</td><td>/24</td><td>211</td><td>192.168.211.0/28</td><td>-</td></tr>
+                    <tr><td>enp7s2.211</td><td>192.168.211.1</td><td>/28</td><td>211</td><td>192.168.211.0/28</td><td>-</td></tr>
                     <tr><td>enp7s2.911</td><td>192.168.99.1</td><td>/29</td><td>911</td><td>192.168.99.0/29</td><td>-</td></tr>
                     <tr><td>gre1</td><td>10.10.10.1</td><td>/30</td><td>-</td><td>10.10.10.0/30</td><td>-</td></tr>
                     <tr><td rowspan="3">BR-RTR</td><td>enp7s1</td><td>172.16.20.2</td><td>/28</td><td>-</td><td>172.16.20.0/28</td><td>172.16.20.1</td></tr>
@@ -99,7 +99,7 @@ tr:nth-child(even) { background: #f8f9fa; }
                     <tr><td>gre1</td><td>10.10.10.2</td><td>/30</td><td>-</td><td>10.10.10.0/30</td><td>-</td></tr>
                     <tr><td>HQ-SRV</td><td>enp7s1</td><td>192.168.111.2</td><td>/27</td><td>111</td><td>192.168.111.0/27</td><td>192.168.111.1</td></tr>
                     <tr><td>BR-SRV</td><td>enp7s1</td><td>192.168.0.2</td><td>/28</td><td>-</td><td>192.168.0.0/28</td><td>192.168.0.1</td></tr>
-                    <tr><td>HQ-CLI</td><td>enp7s1</td><td>192.168.211.2</td><td>/29td><td>211</td><td>192.168.211.0/29</td><td>192.168.211.1</td></tr>
+                    <tr><td>HQ-CLI</td><td>enp7s1</td><td>192.168.211.2</td><td>/29<td><td>211</td><td>192.168.211.0/29</td><td>192.168.211.1</td></tr>
                 </tbody>
             </table>
         </div>
